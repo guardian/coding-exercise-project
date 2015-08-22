@@ -1,0 +1,4 @@
+package gol
+
+object GameOfLife
+

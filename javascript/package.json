@@ -1,0 +1,17 @@
+{
+    "name": "game-of-life",
+    "version": "0.0.1",
+    "dependencies": {
+
+    },
+    "devDependencies": {
+        "mocha": "^2.2.1"
+        },
+    "scripts": {
+        "test": "mocha"
+        },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/guardian/game-of-life.git"
+    }
+}
