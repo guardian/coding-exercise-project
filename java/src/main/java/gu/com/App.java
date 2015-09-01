@@ -1,4 +1,4 @@
-package game.of.life;
+package gu.com;
 
 /**
  * Hello world!

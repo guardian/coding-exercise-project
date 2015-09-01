@@ -1,4 +1,4 @@
-package game.of.life;
+package gu.com;
 
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
