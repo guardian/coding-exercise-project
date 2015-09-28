@@ -1,6 +1,5 @@
-package gameoflife
+package gu.com
 
-import gol.GameOfLife._
 import org.scalatest.FlatSpec
 import org.scalatest.matchers.ShouldMatchers
 
