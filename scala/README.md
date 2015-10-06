@@ -1,5 +1,3 @@
-# Game of Life (Scala)
-
-## Getting started
+# Getting started
 
 Load this directory into IntelliJ
