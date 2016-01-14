@@ -1,11 +1,10 @@
 package gu.com
 
-import org.scalatest.FlatSpec
-import org.scalatest.matchers.ShouldMatchers
+import org.scalatest.{FlatSpec, Matchers}
 
-class TestSetup extends FlatSpec with ShouldMatchers {
+class TestSetup extends FlatSpec with Matchers {
   "setup" should "always pass" in {
-    val l = 1 :: 2 :: Nil
+    val l = List(1, 2)
     l.size should be (2)
   }
 }
