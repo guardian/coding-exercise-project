@@ -1,6 +1,6 @@
 
-all: gol.exe
-	mono gol.exe
+all: example.exe
+	mono example.exe
 
-gol.exe: gol.cs
-	mcs gol.cs
+example.exe: example.cs
+	mcs example.cs
