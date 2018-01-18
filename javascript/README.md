@@ -1,10 +1,8 @@
-# Game of life (Javascript)
+# Javascript Pairing Test Skeleton
 
-## Getting started
+Requires `node ^6`.
 
-I recommend using [nvm](https://github.com/creationix/nvm) or your preferred virtual environment solution
-
-* npm install
-* npm test
+- `npm install`
+- `npm test`
 
 You should now have one failing test
