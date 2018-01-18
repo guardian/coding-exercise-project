@@ -1,17 +1,13 @@
 {
-    "name": "game-of-life",
+    "name": "javascript-pairing-test",
     "version": "0.0.1",
-    "dependencies": {
-
-    },
     "devDependencies": {
-        "mocha": "^2.2.1"
-        },
+        "jest": "^22.1.2"
+    },
+    "jest": {
+        "testRegex": "./test/.*.js$"
+    },
     "scripts": {
-        "test": "mocha"
-        },
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/guardian/game-of-life.git"
+        "test": "jest"
     }
 }
