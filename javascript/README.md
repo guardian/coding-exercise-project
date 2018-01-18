@@ -1,6 +1,6 @@
 # Javascript Pairing Test Skeleton
 
-Requires `node`.
+Requires `node ^6`.
 
 - `npm install`
 - `npm test`
