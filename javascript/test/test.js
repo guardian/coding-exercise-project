@@ -1,3 +1,5 @@
+const { pairingTest } = require('../src/pairing-test');
+
 test('a failing test', () => {
-    expect(false).toBe(true);
+    expect(pairingTest()).toBe(true);
 });
