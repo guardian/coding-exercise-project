@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "pairing_test"
+
+# You can type anything in this file and just run `bin/script` to have it logged
+# for testing
