@@ -1,0 +1,9 @@
+{
+    "require": {
+        "phpunit/phpunit": "^7.5"
+    },
+    "scripts": {
+        "run": "php code.php",
+        "test": "phpunit tests.php"
+    }
+}
