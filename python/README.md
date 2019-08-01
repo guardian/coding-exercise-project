@@ -38,6 +38,8 @@ source venv/bin/activate
 
 PyCharm is the preferred IDE of most developers when using Python. If virtualenv is active, it should automatically set the correct Python version.
 
+If you do not currently have PyCharm installed, you can download and install the community edition from the [official website](https://www.jetbrains.com/pycharm/download/).
+
 ## Usage
 
 on the CLI, run `python -m unittest discover` to run the test suite (there is initially one failing test).
