@@ -1,1 +1,0 @@
-name='Game of Life'
