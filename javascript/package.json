@@ -8,6 +8,6 @@
         "testRegex": "./test/.*.js$"
     },
     "scripts": {
-        "test": "jest"
+        "test": "jest --watchAll"
     }
 }
