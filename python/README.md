@@ -1,9 +1,8 @@
-# Game of Life (Python)
+# Python Coding Exercise Skeleton
 
 ## Getting started
-
-No special requirements, should work with a standard OSX install
+- Clone repo
+- From the `python` directory, run `./script/setup` to install dependencies
 
 ## Usage
-
-`./run-tests.sh` to run the test suite (there is initially one failing test)
+- To run tests, from the `python` directory, run `./script/test`

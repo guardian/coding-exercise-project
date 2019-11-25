@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+
+brew install python3
+
+pip3 install virtualenv
+
+virtualenv venv
+
+source venv/bin/activate
