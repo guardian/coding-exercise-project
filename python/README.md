@@ -2,7 +2,7 @@
 
 ## Getting started
 - Clone repo
-- From the `python` directory, run `./script/setup` to install dependencies
+- Run [`./script/setup`](./script/setup) to install dependencies
 
 ## Usage
-- To run tests, from the `python` directory, run `./script/test`
+- Run [`./script/test`](./script/test)

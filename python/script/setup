@@ -2,10 +2,13 @@
 
 set -e
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+pushd "$DIR"
+
 brew install python3
 
 pip3 install virtualenv
 
-virtualenv venv
+virtualenv ../venv
 
-source venv/bin/activate
+popd
