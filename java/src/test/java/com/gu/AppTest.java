@@ -1,4 +1,4 @@
-package gu.com;
+package com.gu;
 
 import junit.framework.TestCase;
 import junit.framework.TestSuite;

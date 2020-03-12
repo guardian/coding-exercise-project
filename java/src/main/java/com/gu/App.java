@@ -1,4 +1,4 @@
-package gu.com;
+package com.gu;
 
 /**
  * Hello world!
