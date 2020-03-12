@@ -1,8 +1,14 @@
-# Python Coding Exercise Skeleton
+# Python
 
-## Getting started
-- Clone repo
-- Run [`./script/setup`](./script/setup) to install dependencies
+Skeleton project for Python.
 
 ## Usage
-- Run [`./script/test`](./script/test)
+- `./script/setup` to install dependencies (uses [homebrew](https://brew.sh/))
+- `./script/test` to run the tests
+
+
+## Structure
+- Code located in [`pairing_exercise.py`](./pairing_exercise.py)
+- Tests located in [`test_pairing_exercise.py`](./test_pairing_exercise.py)
+
+However, you're free to organise your code as you like. 
