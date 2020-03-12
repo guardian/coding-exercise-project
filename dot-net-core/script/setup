@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+
+# The dotnet-sdk cask will install version 3.1 on macOS > Sierra
+# however this project uses version 2.2
+# See https://github.com/Homebrew/homebrew-cask/blob/master/Casks/dotnet-sdk.rb
+# See https://stackoverflow.com/questions/55387250/multiple-versions-of-net-core-on-macos-with-brew
+
+brew tap isen-ng/dotnet-sdk-versions
+brew cask install dotnet-sdk-2.2.100
