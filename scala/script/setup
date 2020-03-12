@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -e
+
+brew cask install "guardian/devtools/gu-scala"
