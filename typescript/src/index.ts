@@ -1,3 +1,3 @@
-const myConst = true;
+const myConst = false;
 
 export { myConst };
