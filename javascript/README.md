@@ -1,17 +1,14 @@
-# Javascript Pairing Test Skeleton
+# Javascript
 
-Install, the version of Node specified in the .nvmrc file.
-(Typically this is done using nvm.)
+Skeleton project for Javascript with Jest for testing.
 
-If you have NVM installed already then you can simply run:
+## Usage
+- `./script/setup` to install dependencies
+- `./script/test` to run the tests
 
-    $ nvm use
 
-and it should switch to the correct version.
+## Structure
+- Code located in [`pairing-test.js`](./src/pairing-test.js)
+- Tests located in [`test.js`](./test/test.js)
 
-Then:
-
-    $ npm install
-    $ npm test
-
-You should now have one failing test
+However, you're free to organise your code as you like. 
