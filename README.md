@@ -8,6 +8,20 @@ To learn more, please see the [repository of exercises](https://github.com/guard
 
 Inspired to work for us? [**Apply now**](http://developers.theguardian.com/join-the-team.html)
 
+## Setting up your environment
+
+For the coding exercise you will need to be able to do two things:
+
+- Write code in the language of your choice, sharing your screen to pair with the remote interviewer
+- Run that code
+- Optionally: write tests for the code you have written
+
+These skeleton projects can be used to set up such an environment quickly should you wish but are not required.
+You can set up your own environment but please do so **before** you join the Hangout and check that you can run and test your code.
+
+If you have any issues with your environment please let your interviewer know as soon as you join the Hangout so that
+they can adjust the exercise accordingly.
+
 ## How to use
 This repository has a directory per language. Each skeleton follows the same structure with a README and a failing test.
 
