@@ -1,6 +1,6 @@
 package main
 
-import "./pairing"
+import "./src"
 
 func main() {
   println(pairing.SayHello())
