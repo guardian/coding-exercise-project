@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+pushd src
+
+go test
+
+popd
