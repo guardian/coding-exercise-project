@@ -4,6 +4,6 @@
     },
     "scripts": {
         "start": "php code.php",
-        "test": "phpunit tests.php"
+        "test": "phpunit Tests.php"
     }
 }

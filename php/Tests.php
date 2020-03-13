@@ -1,7 +1,8 @@
 <?php
+
 use PHPUnit\Framework\TestCase;
 
-class PairingTest extends TestCase
+class Tests extends TestCase
 {
     public function testSkeleton()
     {
