@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -e
+
+brew install php
+brew install phpunit
+brew install composer
