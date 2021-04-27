@@ -16,4 +16,4 @@ checkNodeVersion() {
 }
 
 checkNodeVersion
-npm install
+yarn
