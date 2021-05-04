@@ -8,7 +8,7 @@ Skeleton project for Javascript with Jest for testing.
 
 
 ## Structure
-- Code located in [`pairing-test.js`](./src/pairing-test.js)
-- Tests located in [`test.js`](./test/test.js)
+- Code located in [`index.js`](./src/index.js)
+- Tests located in [`index.test.js`](./src/index.test.js)
 
 However, you're free to organise your code as you like. 
