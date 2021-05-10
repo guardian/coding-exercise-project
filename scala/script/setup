@@ -2,4 +2,4 @@
 
 set -e
 
-brew cask install "guardian/devtools/gu-scala"
+brew install --cask "guardian/devtools/gu-scala"
