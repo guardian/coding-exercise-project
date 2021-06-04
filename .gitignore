@@ -1,7 +1,18 @@
+*.iml
+*.pyc
+
+# IDEs
 .idea
 .idea_modules
-*.iml
+.vscode
+
+# build files
 target
+.metals
+
+# vendor files
 node_modules
-*.pyc
+
+# System files
 .DS_Store
+
