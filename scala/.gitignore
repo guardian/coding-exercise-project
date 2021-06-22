@@ -1,0 +1,4 @@
+# Metals / builds
+.bloop
+.bsp
+metals.sbt
