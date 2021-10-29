@@ -1,2 +1,3 @@
 bin
 obj
+dotnet-install.ps1
