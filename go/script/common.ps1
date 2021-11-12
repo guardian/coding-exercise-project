@@ -15,7 +15,12 @@ function Test-CommandExists {
     }
 }
 
+function RefreshPath {
+    $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User") 
+}
+
 function RunSetupIfNeeded {
+    RefreshPath
     if ( -Not (Test-CommandExists go) ) {
         Write-Output "go is not installed. Running setup script..."
         . ($PSScriptRoot + "\setup.ps1")

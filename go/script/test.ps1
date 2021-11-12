@@ -2,4 +2,8 @@
 
 RunSetupIfNeeded
 
+cd src
+
 go test
+
+cd ../

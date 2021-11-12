@@ -25,8 +25,8 @@ function GetLatestGoVersion() {
 }
 
 if (Test-CommandExists go) {
-    $goVersion = Invoke-Command "go --version"
-    Write-Host "go version $goVersion is already installed"
+    $goVersion = go version
+    Write-Host "$goVersion is already installed"
 } else {
     Write-Host "Downloading and installing go"
     $suffix = GetInstallerSuffix
@@ -44,5 +44,5 @@ if (Test-CommandExists go) {
             Write-Output "Failed to download and install go. Visit https://golang.org/dl/ to download go"
         }
     }
-    
+    RefreshPath
 }
