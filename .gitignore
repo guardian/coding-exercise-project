@@ -16,3 +16,7 @@ node_modules
 # System files
 .DS_Store
 
+# Temporary Download files
+*.exe
+*.msi
+*.tmp
