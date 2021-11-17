@@ -1,0 +1,19 @@
+{
+    "name": "javascript-es6-pairing-test",
+    "version": "0.0.1",
+    "type": "module",
+    "devDependencies": {
+        "@babel/preset-env": "^7.16.4",
+        "babel-jest": "^27.3.1",
+        "jest": "^26.6.3"
+    },
+    "scripts": {
+        "test": "jest --watchAll",
+        "start": "node src/index.js"
+    },
+    "jest": {
+        "transform": {
+          "^.+\\.js?$": "babel-jest"
+        }
+      }
+}
