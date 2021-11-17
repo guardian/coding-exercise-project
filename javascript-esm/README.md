@@ -1,6 +1,6 @@
-# Javascript ES6
+# Javascript ESM
 
-Skeleton project for Javascript (es6) with Jest for testing.
+Skeleton project for Javascript (ESM) with Jest for testing.
 
 ## Usage
 - `./script/setup` to install dependencies

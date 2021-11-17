@@ -1,5 +1,5 @@
 {
-    "name": "javascript-es6-pairing-test",
+    "name": "javascript-esm-pairing-test",
     "version": "0.0.1",
     "type": "module",
     "devDependencies": {
