@@ -31,44 +31,6 @@ function GetJDKLocation() {
     return $jdkLocation
 }
 
-function GetLatestMaven3Version() {
-    $version = "3.6.3"
-    try {
-        $regex = 'a href="(3.8.[0-9.]+)\/'
-        $releasesHTML = (new-object net.webclient).DownloadString("https://dlcdn.apache.org/maven/maven-3/")
-        if ($releasesHTML -match $regex) {
-            $version = $Matches[1]
-            return $version
-        }
-    } catch {
-        Write-Host $_
-    }
-    Write-Host "Failed to determine latest Maven 3 version using $version"
-    return $version
-}
-
-function GetFilenameFromPath($filepath, $default) {
-    if ($filepath -match '\/(?<file>[%a-zA-Z\.\-_0-9]*)$') {
-        return $Matches.file
-    }
-    return $default
-}
-
-function DownloadMavenIfNeeded {
-    "Downloading maven if needed..."
-    $mavenVersion = GetLatestMaven3Version
-    Write-Host "Latest maven version $mavenVersion"
-    $mavenZipUrl = "https://dlcdn.apache.org/maven/maven-3/$mavenVersion/binaries/apache-maven-$mavenVersion-bin.zip"
-    $mavenZip = "apache-maven-$mavenVersion-bin.zip"
-    if (Test-Path "./$mavenZip") {
-        Write-Host "Already downloaded $mavenZip"
-    } else {
-        DownloadToFile $mavenZipUrl $mavenZip
-        Expand-Archive -LiteralPath ./$mavenZip -DestinationPath "./maven"
-    }
-    $env:PATH = $env:PATH + ";" + (Convert-Path . ) + "/maven/apache-maven-$mavenVersion/bin"
-}
-
 function DownloadJDK() {
     $cpuArchId = GetCPUArchId
     $downloadLink = GetLatestJDK11Link($cpuArchId)
@@ -85,18 +47,32 @@ function DownloadJDK() {
     RefreshPath
 }
 
+function DownloadSBT() {
+    $zipUrl = "https://github.com/sbt/sbt/releases/download/v1.5.6/sbt-1.5.6.zip"
+    $zipFilename = GetFilenameFromPath $zipUrl
+    DownloadToFile $zipUrl $zipFilename
+    if (Test-Path "./$zipFilename") {
+        Write-Host "Already downloaded $zipFilename"
+    } else {
+        DownloadToFile $zipUrl $zipFilename
+        Expand-Archive -LiteralPath ./$zipFilename -DestinationPath "./"
+    }
+    $env:PATH = $env:PATH + ";" + (Convert-Path . ) + "/sbt/bin/"
+}
+
 $jdkLocation = GetJDKLocation
-if (Test-CommandExists javac) {
-    $jdkVersion = javac --version
-    Write-Host "JDK already installed $jdkVersion"
-} elseif ($jdkLocation) {
+if ($jdkLocation) {
     Write-Host "JDK found at $jdkLocation, setting JAVA_HOME and adding to Path"
     $env:JAVA_HOME = $jdkLocation
     $env:Path = "$env:Path;$jdkLocation/bin"
 } else {
-    Write-Host "JDK not installed. Downloading JDK 11..."
     DownloadJDK
 }
 
-DownloadMavenIfNeeded
-mvn -v
+if (-Not (Test-CommandExists sbt)) {
+    DownloadSBT
+}
+
+sbt --version
+
+

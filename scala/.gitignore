@@ -2,3 +2,7 @@
 .bloop
 .bsp
 metals.sbt
+
+# Local sbt install
+sbt/
+*.zip
