@@ -2,6 +2,4 @@
 
 RunSetupIfNeeded
 
-mvn package -D maven.test.skip
-
-java -jar .\target\pairing-test-1.0-SNAPSHOT.jar
+mvn compile exec:java
