@@ -30,33 +30,29 @@ function Invoke-Admin() {
     }
 }
 
-function UsingCorrectNodeVersion {
+function UsingCorrectNodeVersion() {
     if ( Test-CommandExists node ) {
         $runningNodeVersion=$(node -v)
         $requiredNodeVersion=$(cat .nvmrc)
         if ($runningNodeVersion -eq $requiredNodeVersion) {
-            return $true
+            return $True
         }
     }
-    return $false
+    return $False
 }
 
-function RunSetupIfNeeded {
-    RefreshPath
-    if ( UsingCorrectNodeVersion ) {
-        Write-Output "Correct version of Node not installed. Running setup script..."
-        . ($PSScriptRoot + "\setup.ps1")
-        Write-Output ""
+function WarnIfIncorrectNodeVersion {
+    Write-Output "Running UsingCorrectNodeVersion?"
+    $res = UsingCorrectNodeVersion
+    Write-Output "res: $res"
+    if ($res -eq $False ) {
+        Write-Output "Correct version of Node not installed."
+        Write-Output "Use ./script/setup or nvm to setup correct version of node"
     }
 }
 
-# Returns integer for CPU architecture as listed here: https://docs.microsoft.com/en-us/windows/win32/cimwin32prov/win32-processor
-# 0 - x86 32bit
-# 5 - ARM
-# 9 - x86 64bit
-function GetCPUArchId {
-    $CPUObj = Get-WMIObject -Class Win32_Processor -ComputerName $env:ComputerName -EA Stop
-    return [int]$CPUObj.Architecture
+function RefreshPath {
+    $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User") 
 }
 
 function DownloadToFile ($url, $filename) {

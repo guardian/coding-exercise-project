@@ -21,14 +21,21 @@ function SetupNode() {
         Write-Output "Correct node version installed. You're good to go!"
     } else {
         $requiredNodeVersion = $(cat .nvmrc)
-        DownloadNVM
         Write-Output "Switching to $requiredNodeVersion using nvm"
-        nvm install $requiredNodeVersion
-        $env:Path = "$env:Path;$(pwd)\nvm\$requiredNodeVersion"
-        cp "$(pwd)/nvm/$requiredNodeVersion/node64.exe" "$(pwd)/nvm/$requiredNodeVersion/node.exe"
+        if (Test-CommandExists nvm) {
+            Write-Output "nvm already installed" 
+            nvm install $requiredNodeVersion
+            nvm use $requiredNodeVersion
+        } else {
+            DownloadNVM
+            nvm install $requiredNodeVersion
+            $env:Path = "$env:Path;$(pwd)\nvm\$requiredNodeVersion"
+            cp "$(pwd)/nvm/$requiredNodeVersion/node64.exe" "$(pwd)/nvm/$requiredNodeVersion/node.exe"
+        }
     }
 }
 
 SetupNode
 
 npm install
+Write-Output "If you saw an error instead of npm installing then run npm install manually"
