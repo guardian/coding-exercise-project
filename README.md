@@ -29,11 +29,16 @@ To get started:
 
 💻 Clone the repo `git clone git@github.com:guardian/coding-exercise-project.git`
 
+🔓 If you are on Windows allow the running of Powershell scripts by running the following in Powershell as an Administrator
+`Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
+
 🗂 Switch directories to the language of your choosing
 
-🔌 Install dependencies and perform other setup tasks `./script/setup` (usually uses [homebrew](https://brew.sh/))
+🔌 Install dependencies and perform other setup tasks.
+- If you are using MacOS or Linux run `./script/setup` (usually uses [homebrew](https://brew.sh/))
+- If you are using Windows run `./script/setup.ps1`
 
-🧪 Run the tests and witness them fail `./script/test`
+🧪 Run the tests and witness them fail `./script/test` (or if on Windows use `./script/test.ps1`)
 
 💻 Now it is up to you! Using your editor of choice, start writing code!
 
