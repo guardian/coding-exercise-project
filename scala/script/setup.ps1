@@ -50,13 +50,13 @@ function DownloadJDK() {
 function DownloadSBT() {
     $zipUrl = "https://github.com/sbt/sbt/releases/download/v1.5.6/sbt-1.5.6.zip"
     $zipFilename = GetFilenameFromPath $zipUrl
-    DownloadToFile $zipUrl $zipFilename
     if (Test-Path "./$zipFilename") {
         Write-Host "Already downloaded $zipFilename"
     } else {
         DownloadToFile $zipUrl $zipFilename
-        Expand-Archive -LiteralPath ./$zipFilename -DestinationPath "./"
     }
+    Write-Host "Extracting $zipFilename"
+    Expand-Archive -Force -LiteralPath ./$zipFilename -DestinationPath "./"
     $env:PATH = $env:PATH + ";" + (Convert-Path . ) + "/sbt/bin/"
 }
 
@@ -74,5 +74,6 @@ if (-Not (Test-CommandExists sbt)) {
 }
 
 sbt --version
+Write-Output "JDK and sbt (scala build tool) installed. You're good to go!"
 
 
