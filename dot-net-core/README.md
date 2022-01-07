@@ -2,10 +2,16 @@
 
 Pairing test skeleton using .NET core and `nunit` for testing.
 
-## Usage
+## Usage (on MacOS / Linux / Unix)
 - `./script/setup` to install dependencies (uses [homebrew](https://brew.sh/))
 - `./script/test` to run the tests
 - `./script/start` to run the code
+
+## Usage (on Windows)
+- Ensure you allow the running of Powershell scripts by running as an admin `Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
+- `./script/setup.ps1` to install dependencies (Downloads .NET Core 6 to dotnet folder within this folder)
+- `./script/test.ps1` to run the tests
+- `./script/start.ps1` to run the code
 
 ## Structure
 - Code located in [`PairingTest.cs`](./Code/PairingTest.cs)
