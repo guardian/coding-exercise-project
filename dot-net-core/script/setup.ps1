@@ -1,24 +1,13 @@
-. ($PSScriptRoot + "/../../common.ps1")
+. ($PSScriptRoot + "/common.ps1")
 
-$DotNetPath = SetupCommandOnPath dotnet @("$env:DOTNET_INSTALL_DIR", "$env:LocalAppData\Microsoft\dotnet")
+$DotNetPath = SetupCommandOnPath dotnet @("$env:LocalAppData/Microsoft/dotnet", "./dotnet")
 if ( -Not $DotNetPath ) {
-    Write-Output "Downloading Dot Net Core Install Script from https://dotnet.microsoft.com/download/dotnet/scripts/v1/dotnet-install.ps1"
-    Write-Output "This script will download the latest version of Dot Net Core"
-    Write-Output ""
-
-    DownloadToFile 'https://dotnet.microsoft.com/download/dotnet/scripts/v1/dotnet-install.ps1' "$(Get-Location)/dotnet-install.ps1"
-    . ./dotnet-install.ps1 -Version "6.0.101"
-    $DotNetPath = SetupCommandOnPath dotnet @("$env:DOTNET_INSTALL_DIR", "$env:LocalAppData\Microsoft\dotnet")
+    Write-Output "Downloading Dot Net Core 6.0.101 (approx 243MB download)"
+    $archString = GetCPUArchString "x86" "x64" "arm" "arm64"
+    $url = "https://dotnetcli.azureedge.net/dotnet/Sdk/6.0.101/dotnet-sdk-6.0.101-win-$archString.zip"
+    DownloadAndUnzipIfNeeded $url "./dotnet"
+    $DotNetPath = SetupCommandOnPath dotnet @("./dotnet")
 }
 
 $env:DOTNET_ROOT = $DotNetPath
 Write-Output "dotnet version: $(dotnet --version) installed at $($DotNetPath)"
-
-[Environment]::SetEnvironmentVariable("DOTNET_ROOT", $DotNetPath) # Needed to make sure dotnet test works
-
-# Add .Net Core to User Path to persist between installs
-$CurrentPath = [Environment]::GetEnvironmentVariable("Path", "User")
-if ( -Not ( $CurrentPath -like "*dotnet*" ) ) {
-    Write-Output "Adding Dot Net Core SDK permanently to User Path"
-    [Environment]::SetEnvironmentVariable("Path", "$CurrentPath;$DotNetPath", "User")
-}

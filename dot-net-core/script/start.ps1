@@ -1,8 +1,9 @@
-. ($PSScriptRoot + "\..\..\common.ps1") # Import common functions
+. ($PSScriptRoot + "/common.ps1") # Import common functions
 
-if ( -Not (Test-CommandExists dotnet) ) {
-    Write-Host "dotnet command not available running setup script"
-    . ($PSScriptRoot + "\setup.ps1")
-}
+# Ensure DOTNET_ROOT is set
+$env:DOTNET_ROOT = SetupCommandOnPath dotnet @("$env:LocalAppData/Microsoft/dotnet", "./dotnet")
+
+# Run setup if dotnet command not installed
+RunSetupIfNeeded dotnet
 
 dotnet run --project Code
