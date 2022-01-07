@@ -1,4 +1,4 @@
-. ($PSScriptRoot + "\common.ps1")
-RunSetupIfNeeded
+. ($PSScriptRoot + "/../../common.ps1")
+RunSetupIfNeeded ruby
 
-ruby ($PSScriptRoot + "\start")
+ruby ($PSScriptRoot + "/start")
