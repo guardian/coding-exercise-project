@@ -13,6 +13,7 @@ function GetLatestGoVersion() {
     return $defaultVersion
 }
 
+RefreshPath
 if (Test-CommandExists go) {
     $goVersion = go version
     Write-Host "$goVersion is already installed"
