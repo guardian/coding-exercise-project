@@ -1,12 +1,23 @@
-. ($PSScriptRoot + "\common.ps1")
+. ($PSScriptRoot + "/../../common.ps1")
 
-if ( (Python3Installed) ) {
-    Write-Output "Python 3 not installed. Installing python 3.10..."
-    Write-Output "Please follow installer steps"
+function Python3Installed() {
+    RefreshPath
+    if ( Test-CommandExists python ) {
+        $versionString = python --version
+        if ($versionString.StartsWith("Python 3.")) {
+            return $True
+        }
+    }
+    return $False
+}
+
+if ( -Not (Python3Installed) ) {
+    Write-Host "Python 3 not installed. Installing python 3.10..."
+    Write-Host "Please follow installer steps"
     $url = "https://www.python.org/ftp/python/3.10.1/python-3.10.1-amd64.exe"
     $installerFilename = "python-3.10.1-amd64.exe"
     if ( -Not (Test-Path -Path "./$installerFilename") ) {
-        Write-Output "Downloading Python 3.10 64bit"
+        Write-Host "Downloading Python 3.10 64bit"
         DownloadToFile $url $installerFilename
     }
 
