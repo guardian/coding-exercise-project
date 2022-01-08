@@ -1,14 +1,4 @@
-. ($PSScriptRoot + "\common.ps1")
-
-function GetInstallerSuffix() {
-    $archId = GetCPUArchId
-    $archIdToSuffix = @{
-        0 = "386.msi"
-        5 = "arm64.msi"
-        9 = "amd64.msi"
-    }
-    return $archIdToSuffix[$archId]
-}
+. ($PSScriptRoot + "/../../common.ps1")
 
 function GetLatestGoVersion() {
     $defaultVersion = "1.17.3"
@@ -20,7 +10,6 @@ function GetLatestGoVersion() {
     } catch {
         Write-Host $_
     }
-    Write-Host "Failed to detect latest version of go. Using $defaultVersion"
     return $defaultVersion
 }
 
@@ -29,20 +18,13 @@ if (Test-CommandExists go) {
     Write-Host "$goVersion is already installed"
 } else {
     Write-Host "Downloading and installing go"
-    $suffix = GetInstallerSuffix
+    $suffix = GetCPUArchString "386.msi" "amd64.msi" "" "arm64.msi"
     $latestGoVersion = GetLatestGoVersion
     $goInstallerFilename = "go$latestGoVersion.windows-$suffix"
     $goInstallerUrl = "https://golang.org/dl/$goInstallerFilename"
-    if (Test-Path -Path "./$goInstallerFilename") {
-        Write-Host "$goInstallerFilename already downloaded. Launching..."
-        Start-Process "./$goInstallerFilename"
-    } else {
-        DownloadToFile $goInstallerUrl $goInstallerFilename
-        if (Test-Path -Path "./$goInstallerFilename") {
-            Start-Process "./$goInstallerFilename"
-        } else {
-            Write-Output "Failed to download and install go. Visit https://golang.org/dl/ to download go"
-        }
-    }
+    DownloadIfNeeded $goInstallerUrl $goInstallerFilename
+    Start-Process "./$goInstallerFilename"
     RefreshPath
 }
+
+$env:GO111MODULE="off"
