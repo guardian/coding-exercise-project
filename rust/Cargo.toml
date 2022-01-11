@@ -10,7 +10,7 @@ name = "lib"
 path = "src/lib.rs"
 
 [[bin]]
-name = "lib"
+name = "bin"
 path = "src/main.rs"
 
 [dependencies]
