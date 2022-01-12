@@ -4,7 +4,8 @@ if (Test-CommandExists ruby) {
     $rubyVersion = ruby --version
     Write-Host "Ruby already installed $rubyVersion"
 } else {
-    Write-Host "Ruby not installed. Downloading ruby 2 installer with devkit..."
+    Write-Host "Ruby not installed."
+    AskPermissionForGlobalInstall "ruby2 with devkit" "Please install ruby2 manually and re-run this setup script"
     $cpuArchStr = GetCPUArchString "" "x64" "" ""
     $fileRegex = "RubyInstaller-2[0-9\-\.]*\/rubyinstaller-devkit-2[0-9\-\.]*-$cpuArchStr\.exe"
     $defaultLink = "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.5-1/rubyinstaller-2.7.5-1-$cpuArchStr.exe"

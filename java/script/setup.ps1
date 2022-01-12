@@ -1,22 +1,11 @@
-. ($PSScriptRoot + "\common.ps1")
+. ($PSScriptRoot + "/../../common.ps1")
 
 function GetLatestJDK11Link($cpuArchId) {
-    $archString = "x64"
-    if ($cpuArchId -eq 0) {
-        $archString = "x86-32"
-    }
+    $archString = GetCPUArchString "x86-32" "x64" "" ""
     $defaultLink = "https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.13%2B8/OpenJDK11U-jdk_" + $archString + "_windows_hotspot_11.0.13_8.msi"
-    try {
-        $regex = "\/adoptium\/temurin11-binaries\/releases\/download\/jdk-11[0-9\.\-%a-bA-B]*\/OpenJDK11U-jdk_" + $archString + "_windows_hotspot_[0-9\._-]*.msi"
-        $releasesHTML = (new-object net.webclient).DownloadString("https://github.com/adoptium/temurin11-binaries/releases/latest")
-        if ($releasesHTML -match $regex) {
-            return "https://github.com" + $Matches[0]
-        }
-    } catch {
-        Write-Host $_
-    }
-    Write-Host "Failed to determine latest version of ruby 2. Using $defaultLink"
-    return $defaultLink
+    $fileRegex = "jdk-11[0-9\.\-%a-bA-B]*\/OpenJDK11U-jdk_" + $archString + "_windows_hotspot_[0-9\._-]*.msi"
+    Write-Host "Failed to determine latest version of jdk 11. Using $defaultLink"
+    return GetLatestDownloadViaGithub "adoptium" "temurin11-binaries" $fileRegex $defaultLink $searchQuery
 }
 
 function GetJDKLocation() {
@@ -90,11 +79,12 @@ if (Test-CommandExists javac) {
     $jdkVersion = javac --version
     Write-Host "JDK already installed $jdkVersion"
 } elseif ($jdkLocation) {
-    Write-Host "JDK found at $jdkLocation, setting JAVA_HOME and adding to Path"
+    Write-Host "JDK found at $jdkLocation, setting JAVA_HOME and adding to session Path"
     $env:JAVA_HOME = $jdkLocation
     $env:Path = "$env:Path;$jdkLocation/bin"
 } else {
-    Write-Host "JDK not installed. Downloading JDK 11..."
+    Write-Host "JDK not installed."
+    AskPermissionForGlobalInstall "jdk11" "Install JDK 11 manually https://adoptium.net/?variant=openjdk11"
     DownloadJDK
 }
 
