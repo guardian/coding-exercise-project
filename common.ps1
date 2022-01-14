@@ -11,8 +11,7 @@ function AskPermissionForGlobalInstall($softwareName, $rejectionMsg) {
     if ($decision -eq 0) {
         Write-Host "Proceeding to download and install $softwareName"
     } else {
-        Write-Host $rejectionMsg
-        exit
+        throw $rejectionMsg
     }
 }
 

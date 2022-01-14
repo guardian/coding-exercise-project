@@ -1,5 +1,5 @@
-. ($PSScriptRoot + "\common.ps1")
+. ($PSScriptRoot + "/../../common.ps1")
 
-RunSetupIfNeeded
+RunSetupIfNeeded "mvn"
 
 mvn compile exec:java
