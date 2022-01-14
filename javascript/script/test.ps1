@@ -1,4 +1,5 @@
-. ($PSScriptRoot + "\common.ps1")
+. ($PSScriptRoot + "/../../common.ps1")
+. ($PSScriptRoot + "/../../node.ps1")
 
 WarnIfIncorrectNodeVersion
 
