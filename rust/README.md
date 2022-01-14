@@ -5,6 +5,7 @@ It is assumed that Rust is installed on your machine. If not, please follow the 
 
 ## Usage
 - `./script/test` to run the tests
+- `./script/start` to run the code
 
 ## Structure
 - Code located in [`main.rs`](./src/main.rs)
