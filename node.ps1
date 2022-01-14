@@ -22,10 +22,7 @@ function WarnIfIncorrectNodeVersion {
 function DownloadNVM() {
     Write-Output "Downloading temporary version of nvm for session"
     $url = "https://github.com/coreybutler/nvm-windows/releases/download/1.1.8/nvm-noinstall.zip"
-    $zipFilename = "nvm-nosetup.zip"
-    DownloadToFile $url $zipFilename
-    Remove-Item -LiteralPath "nvm" -Force -Recurse
-    Expand-Archive -LiteralPath ./$zipFilename -DestinationPath "./nvm"
+    DownloadAndUnzipIfNeeded $url "./nvm"
     $pwd = pwd
     $env:NVM_HOME = "$pwd\nvm"
     $env:NVM_SYMLINK = "$pwd\nvm\nodejs"
