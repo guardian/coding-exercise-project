@@ -9,7 +9,6 @@ function FindOrDownloadGradle {
     if (-Not (Test-CommandExists gradle)) {
         $gradleZipUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-bin.zip"
         DownloadAndUnzipIfNeeded $gradleZipUrl "./gradle"
-        Expand-Archive -Force -LiteralPath ./$gradleZip -DestinationPath "./gradle"
     }
 }
 
