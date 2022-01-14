@@ -1,15 +1,7 @@
-. ($PSScriptRoot + "\common.ps1")
+. ($PSScriptRoot + "/../../common.ps1")
 
 $phpZipUrl = "https://windows.php.net/downloads/releases/php-8.1.1-nts-Win32-vs16-x64.zip"
-$zipFilename = "php8.zip"
-
-if (Test-Path "./$zipFilename") {
-    Write-Host "Already downloaded PHP to $zipFilename"
-} else {
-    DownloadToFile $phpZipUrl $zipFilename
-}
-
-Expand-Archive -Force -LiteralPath ./$zipFilename -DestinationPath "./php"
+DownloadAndUnzipIfNeeded $phpZipUrl "./php"
 
 # Add downloaded php to path
 $phpPath = (Convert-Path . ) + "/php"
