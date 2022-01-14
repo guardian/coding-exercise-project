@@ -18,7 +18,7 @@ if (Test-CommandExists go) {
     $goVersion = go version
     Write-Host "$goVersion is already installed"
 } else {
-    AskPermissionForGlobalInstall "go" "Install go manually by visiting https://golang.org/dl/"
+    AskPermissionForGlobalInstall "go" "Install go manually then re-run ./script/setup.ps1. Download go from https://golang.org/dl/"
     Write-Host "Downloading and installing go"
     $suffix = GetCPUArchString "386.msi" "amd64.msi" "" "arm64.msi"
     $latestGoVersion = GetLatestGoVersion
