@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'org.jetbrains.kotlin.jvm' version '1.5.31'
+    id 'application'
 }
 
 ext {
@@ -24,8 +25,8 @@ test {
     testLogging.showStandardStreams = true
 
     testLogging {
-		events "PASSED", "SKIPPED", "FAILED", "STANDARD_OUT", "STANDARD_ERROR"
-	}
+		  events "PASSED", "SKIPPED", "FAILED", "STANDARD_OUT", "STANDARD_ERROR"
+	  }
 }
 
 compileKotlin {
@@ -42,3 +43,5 @@ jar {
     )
   }
 }
+
+mainClassName = 'com.gu.pairingtest.MainKt'
