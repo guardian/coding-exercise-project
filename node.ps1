@@ -46,7 +46,6 @@ function SetupNodeJS() {
             DownloadNVM
             nvm install $requiredNodeVersion
             $env:Path = "$env:Path;$(pwd)\nvm\$requiredNodeVersion"
-            cp "$(pwd)/nvm/$requiredNodeVersion/node64.exe" "$(pwd)/nvm/$requiredNodeVersion/node.exe"
         }
     }
 }
