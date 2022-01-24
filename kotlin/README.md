@@ -10,8 +10,10 @@ You should be able to import this project into Android studio and click the play
 To setup make sure you have the JDK installed and the JAVA_HOME environment variable set. You can run `./script/setup` in a terminal to do this for you if you have Android Studio installed.
 
 Then run in a terminal:
-- `./script/test` to run the unit tests
+- `./script/test` to run the unit tests. 
 - `./script/start` to run the main function
+
+*Please note:* unit tests will not output results if run twice without any test or code changes. See: https://blog.gradle.org/stop-rerunning-tests
 
 If these scripts fail you may have to install JDK and/or Gradle manually and then try running `gradle test` and `gradle run`.
 
