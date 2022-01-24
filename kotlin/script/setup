@@ -40,17 +40,3 @@ if [[ ! -z "$JAVA_HOME" ]]; then
     echo "export JAVA_HOME=\"$JAVA_HOME\""
     echo ""
 fi
-
-# If gradle not on path then ask to install using homebrew
-if ! command -v gradle &> /dev/null ; then
-    echo "gradle not installed"
-    read -p "Install gradle using homebrew? [y/n] " -n 1 -r
-    echo ""
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-        brew install gradle
-    else
-        echo "Install gradle by following instructions at: https://gradle.org/install/"
-    fi
-else 
-    echo "Gradle is installed"
-fi

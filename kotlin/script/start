@@ -8,4 +8,4 @@ then
     source ./script/setup
 fi
 
-gradle run
+./gradlew run
