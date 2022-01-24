@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+
+# If JAVA_HOME not set run setup script using source so that JAVA_HOME is set for this script
+if [[ -z "$JAVA_HOME" ]]
+then
+    source ./script/setup
+fi
+
+gradle run
