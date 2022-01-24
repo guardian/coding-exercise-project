@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+set -e
+
+# If JAVA_HOME not set then search for jdk to set JAVA_HOME to
+# This includes the JDK integrated into Android studio
+if [[ -z "$JAVA_HOME" ]]; then
+    echo "JAVA_HOME not set"
+    android_studio_path="/Applications/Android Studio.app/Contents"
+    system_java_home=$(/usr/libexec/java_home)
+    potential_java_homes=("$JAVA_HOME" "$system_java_home" "$android_studio_path/jre/Contents/Home" "$android_studio_path/jre/jdk/Contents/Home")
+    for potential_java_home in "${potential_java_homes[@]}"
+    do
+        if [[ -f "$potential_java_home/bin/javac" ]]; then
+            echo "Found JDK at $potential_java_home"
+            JAVA_HOME=$potential_java_home
+        fi
+    done
+fi
+
+# If we still can't find a JDK on JAVA_HOME then ask user to install using homebrew
+if [[ -z "$JAVA_HOME" ]]; then
+    echo "Failed to find JDK as no JAVA_HOME is set"
+    read -p "Install adoptopenjdk11 using homebrew? [y/n] " -n 1 -r
+    echo ""
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        brew install adoptopenjdk11
+        JAVA_HOME=$(/usr/libexec/java_home)
+        echo "Setting JAVA_HOME to $JAVA_HOME"
+    else
+        echo "Install JDK and set JAVA_HOME manually."
+    fi
+    exit
+fi
+
+# Tell user to export JAVA_HOME to prevent setup script running again
+if [[ ! -z "$JAVA_HOME" ]]; then
+    echo "To prevent setup script running again run:"
+    echo ""
+    echo "export JAVA_HOME=\"$JAVA_HOME\""
+    echo ""
+fi
+
+# If gradle not on path then ask to install using homebrew
+if ! command -v gradle &> /dev/null ; then
+    echo "gradle not installed"
+    read -p "Install gradle using homebrew? [y/n] " -n 1 -r
+    echo ""
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        brew install gradle
+    else
+        echo "Install gradle by following instructions at: https://gradle.org/install/"
+    fi
+else 
+    echo "Gradle is installed"
+fi
