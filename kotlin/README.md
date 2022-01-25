@@ -25,9 +25,7 @@ Unit tests will not output results if run twice without any test or code changes
 
 ## Manual setup
 
-If these scripts fail and you can't open the project in Android Studio, you may have to install JDK and/or Gradle manually and then try running `gradle test` and `gradle run`.
+If these scripts fail and you can't open the project in Android Studio, you may have to [install the JDK manually](https://adoptium.net/). JDK versions 8 and above should work.
 
-[Intructions for installing Adoptium OpenJDK here](https://adoptium.net/)
-
-[Intructions for installing Gradle manually here](https://gradle.org/install/)
+Once you've installed the JDK and set the JAVA_HOME environment variable to the location of your JDK install, then try running `./gradlew test` which will use the Gradle wrapper script to download Gradle and run the tests. If this fails [download gradle manually](https://gradle.org/install/) and run `gradle test`.
 
