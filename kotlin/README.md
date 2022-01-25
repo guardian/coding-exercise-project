@@ -19,7 +19,6 @@ Then run in a terminal:
 - `./script/test` to run the unit tests. 
 - `./script/start` to run the main function
 
-
 ## Running on the command line (on Windows)
 Make sure you have the [JDK installed](https://adoptium.net/) and the JAVA_HOME environment variable set. 
 
