@@ -11,16 +11,25 @@ However, you're free to organise your code as you like.
 ## Running in Android studio or IntelliJ IDEA
 You should be able to import this project into Android studio or IntelliJ and click the play button next to each unit test to run the unit tests. If this is too slow or doesn't work try following the next section for setting up on the command line / any other IDE.
 
-## Running on the command line / any other IDE (e.g VSCode, Atom, Vim)
+## Running on the command line (on MacOS / Linux)
 
-To setup make sure you have the JDK installed and the JAVA_HOME environment variable set. You can run `./script/setup` in a terminal to try to automate this process. If this fails install the JDK manually.
+To setup make sure you have the JDK installed and the JAVA_HOME environment variable set. You can run `./script/setup` in a terminal to try to automate this process. If this fails [install the JDK manually](https://adoptium.net/)
 
 Then run in a terminal:
 - `./script/test` to run the unit tests. 
 - `./script/start` to run the main function
 
-These scripts will try to run `./script/setup` if your JAVA_HOME environment variable is not set to the location of your JDK install. If you install the JDK manually make sure to set this.
 
+## Running on the command line (on Windows)
+Make sure you have the [JDK installed](https://adoptium.net/) and the JAVA_HOME environment variable set. 
+
+If you already have the JDK installed but no JAVA_HOME set you can run the following in Powershell: 
+
+```$env:JAVA_HOME = Join-Path (Get-Command javac).path "../../" -Resolve```
+
+Then run in a terminal:
+- `./gradlew.bat test` to run the unit tests
+- `./gradlew.bat run` to run the main function
 Unit tests will not output results if run twice without any test or code changes. See: https://blog.gradle.org/stop-rerunning-tests
 
 ## Manual setup
