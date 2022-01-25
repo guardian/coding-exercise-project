@@ -1,6 +1,5 @@
 .gradle/
 out/
-gradle/
 build/
 local.properties
 .idea
