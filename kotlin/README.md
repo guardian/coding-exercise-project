@@ -2,20 +2,24 @@
 
 This is a skeleton project for the Guardian Kotlin pair programming test.
 
-# Running in Android studio
-You should be able to import this project into Android studio and click the play button next to each unit test to run the unit tests. If this is too slow or doesn't work try running on the command line.
+# Running in Android studio or IntelliJ IDEA
+You should be able to import this project into Android studio or IntelliJ and click the play button next to each unit test to run the unit tests. If this is too slow or doesn't work try following the next section for setting up on the command line / any other IDE.
 
-# Running on the command line / any other IDE
+# Running on the command line / any other IDE (e.g VSCode, Atom, Vim)
 
-To setup make sure you have the JDK installed and the JAVA_HOME environment variable set. You can run `./script/setup` in a terminal to do this for you if you have Android Studio installed.
+To setup make sure you have the JDK installed and the JAVA_HOME environment variable set. You can run `./script/setup` in a terminal to try to automate this process. If this fails install the JDK manually.
 
 Then run in a terminal:
 - `./script/test` to run the unit tests. 
 - `./script/start` to run the main function
 
+*Note:* These scripts will try to run `./script/setup` if your JAVA_HOME environment variable is not set to the location of your JDK install. If you install the JDK manually make sure to set this.
+
 *Please note:* unit tests will not output results if run twice without any test or code changes. See: https://blog.gradle.org/stop-rerunning-tests
 
-If these scripts fail you may have to install JDK and/or Gradle manually and then try running `gradle test` and `gradle run`.
+# Manual setup
+
+If these scripts fail and you can't open the project in Android Studio, you may have to install JDK and/or Gradle manually and then try running `gradle test` and `gradle run`.
 
 [Intructions for installing Adoptium OpenJDK here](https://adoptium.net/)
 
