@@ -8,8 +8,9 @@ Skeleton project for Scala.
 
 ## Usage (on Windows)
 - Make sure JDK version 8 or above is installed and JAVA_HOME environment variable is set
+- Use Powershell to execute the below commands
 - `PowerShell.exe -ExecutionPolicy UnRestricted -File .\script\setup.ps1` to download and extract portable sbt
-- `PowerShell.exe -ExecutionPolicy UnRestricted -File .\script\test.ps1` to run tests
+- `$env:PATH += ";$(Convert-Path "./sbt/sbt/bin");" ; sbt ~test` to run tests
 
 ## Structure
 - Code located in [`Main.scala`](./src/main/scala/gu/com/Main.scala)
