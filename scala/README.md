@@ -10,6 +10,7 @@ Skeleton project for Scala.
 - Make sure JDK version 8 or above is installed and JAVA_HOME environment variable is set
 - Use Powershell to execute the below commands
 - `PowerShell.exe -ExecutionPolicy UnRestricted -File .\script\setup.ps1` to download and extract portable sbt
+    - (If this script fails you can do this manually by visiting https://github.com/sbt/sbt/releases ,downloading the latest sbt zip and extracting it to ./coding-exercise-project/scala/sbt)
 - `$env:PATH += ";$(Convert-Path "./sbt/sbt/bin");" ; sbt ~test` to run tests
 
 ## Structure
