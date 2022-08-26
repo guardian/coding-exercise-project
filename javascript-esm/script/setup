@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -e
+
+red='\x1B[0;31m'
+plain='\x1B[0m' # No Color
+
+checkNodeVersion() {
+  runningNodeVersion=$(node -v)
+  requiredNodeVersion=$(cat .nvmrc)
+
+  if [ "$runningNodeVersion" != "$requiredNodeVersion" ]; then
+    echo -e "${red}Using wrong version of Node. Required ${requiredNodeVersion}. Running ${runningNodeVersion}.${plain}"
+    exit 1
+  fi
+}
+
+checkNodeVersion
+yarn
