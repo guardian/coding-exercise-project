@@ -1,10 +1,10 @@
-import org.junit.Assert.*
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class MainTest {
     @Test
     fun `two plus two is four`() {
-        assertEquals(4, 4)
+        assertEquals(2 + 2, 4)
     }
 
 }
