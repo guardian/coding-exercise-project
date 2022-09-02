@@ -11,7 +11,7 @@ Skeleton project for Scala.
 - Use Powershell to execute the below commands
 - `PowerShell.exe -ExecutionPolicy UnRestricted -File .\script\setup.ps1` to download and extract portable sbt
     - (If this script fails you can do this manually by visiting https://github.com/sbt/sbt/releases ,downloading the latest sbt zip and extracting it to ./coding-exercise-project/scala/sbt)
-- `$env:PATH += ";$(Convert-Path "./sbt/sbt/bin");" ; sbt ~test` to run tests
+- `.\sbt\sbt\bin\sbt test` to run tests
 
 ## Structure
 - Code located in [`Main.scala`](./src/main/scala/gu/com/Main.scala)
