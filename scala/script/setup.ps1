@@ -1,7 +1,7 @@
 
 
-$url = "https://github.com/sbt/sbt/releases/download/v1.6.2/sbt-1.6.2.zip"
-$zipFilename = "./sbt-1.6.2.zip"
+$url = "https://github.com/sbt/sbt/releases/download/v1.7.1/sbt-1.7.1.zip"
+$zipFilename = "./sbt-1.7.1.zip"
 $localSbt = "./sbt"
 
 # Download SBT Zip
