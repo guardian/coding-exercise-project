@@ -1,1 +1,6 @@
 vendor
+composer.phar
+
+# local PHP install on windows
+php/
+php*.zip
