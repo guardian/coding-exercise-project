@@ -15,8 +15,8 @@ If using VSCode, you might want to enable the extension in the settings:
 
 ## Usage
 
-- `deno run src/mod.ts` to run your code
-- `deno test src` to run the tests
+- `./script/start` to run your code
+- `./script/start` to run the tests
 
 ### Other commands
 
