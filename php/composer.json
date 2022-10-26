@@ -1,6 +1,6 @@
 {
     "require": {
-        "phpunit/phpunit": "^7.5"
+        "phpunit/phpunit": "^9.3"
     },
     "scripts": {
         "start": "php code.php",
