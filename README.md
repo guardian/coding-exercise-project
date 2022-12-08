@@ -22,6 +22,10 @@ You can set up your own environment but please do so **before** you join the Han
 If you have any issues with your environment please let your interviewer know as soon as you join the Hangout so that
 they can adjust the exercise accordingly.
 
+### GitHub Copilot
+For now, we are asking candidates to disable GitHub Copilot for the duration of the interview. In our experience it makes it harder to
+fairly assess candidates.
+
 ## How to use
 This repository has a directory per language. Each skeleton follows the same structure with a README and a failing test.
 
