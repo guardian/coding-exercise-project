@@ -6,6 +6,8 @@ It is designed to aid in the coding exercise stage of the Guardian's recruitment
 
 To learn more, please see the [repository of exercises](https://github.com/guardian/coding-exercises).
 
+Note that there are no skeleton projects available for the Swift programming language. For iOS developer roles, coding exercises are ran in a blank Xcode playground.
+
 Inspired to work for us? [**Apply now**](http://developers.theguardian.com/join-the-team.html)
 
 ## Setting up your environment
