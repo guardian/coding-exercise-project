@@ -16,3 +16,10 @@ node_modules
 # System files
 .DS_Store
 
+javascript/.yarn/*
+!javascript/.yarn/cache
+!javascript/.yarn/patches
+!javascript/.yarn/plugins
+!javascript/.yarn/releases
+!javascript/.yarn/sdks
+!javascript/.yarn/versions
