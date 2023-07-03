@@ -23,3 +23,11 @@ javascript/.yarn/*
 !javascript/.yarn/releases
 !javascript/.yarn/sdks
 !javascript/.yarn/versions
+
+typescript-node/.yarn/*
+!typescript-node/.yarn/cache
+!typescript-node/.yarn/patches
+!typescript-node/.yarn/plugins
+!typescript-node/.yarn/releases
+!typescript-node/.yarn/sdks
+!typescript-node/.yarn/versions
