@@ -24,6 +24,14 @@ javascript/.yarn/*
 !javascript/.yarn/sdks
 !javascript/.yarn/versions
 
+javascript-esm/.yarn/*
+!javascript-esm/.yarn/cache
+!javascript-esm/.yarn/patches
+!javascript-esm/.yarn/plugins
+!javascript-esm/.yarn/releases
+!javascript-esm/.yarn/sdks
+!javascript-esm/.yarn/versions
+
 typescript-node/.yarn/*
 !typescript-node/.yarn/cache
 !typescript-node/.yarn/patches
