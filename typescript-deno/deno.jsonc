@@ -1,0 +1,7 @@
+{
+  "tasks": {
+    "start": "./script/start",
+    "test": "./script/test"
+  }
+
+}

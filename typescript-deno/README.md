@@ -9,21 +9,16 @@ If using VSCode, you might want to enable the extension in the settings:
 ```jsonc
 // .vscode/settings.json
 {
-  "deno.enable": true
+  "deno.enable": true,
+  // or specifically
+  "deno.enablePaths": ["./typescript-deno"]
 }
 ```
 
 ## Usage
 
-- `./script/start` to run your code
-- `./script/start` to run the tests
-
-### Other commands
-
-- `deno run src/exerciste.ts --watch` will re-run [`mod.ts`](./src/mod.ts) on every
-  file change, for quick development feedback.
-- `deno test src --watch` will re-run [`mod.test.ts`](./src/mod.test.ts) on every file
-  change, for quick development feedback.
+- `./script/start` to run the source code
+- `./script/test` to run the tests in watch mode
 
 ## Structure
 
