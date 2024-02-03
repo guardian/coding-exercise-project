@@ -6,7 +6,7 @@
   // https://github.com/guardian/csnx/blob/1be3fd98ed527ccf0f1b8e21f10039e23fdb3fb7/libs/%40guardian/tsconfig/tsconfig.json
   "compilerOptions": {
     "noImplicitReturns": true,
-    "noUncheckedIndexedAccess": true,
+    "noUncheckedIndexedAccess": false, // disabled to prevent errors in C-style loops: https://github.com/guardian/coding-exercise-project/pull/111#discussion_r1481440786
     "noUnusedLocals": true,
     "strict": true
   }
