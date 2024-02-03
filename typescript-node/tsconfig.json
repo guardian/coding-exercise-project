@@ -1,7 +1,6 @@
 {
+  "extends": "@guardian/tsconfig",
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
     "outDir": "dist",
     "sourceMap": true
   },
