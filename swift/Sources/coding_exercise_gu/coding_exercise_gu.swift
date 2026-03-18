@@ -6,4 +6,8 @@ struct coding_exercise_gu {
     static func main() {
         print("Hello, world!")
     }
+
+    static func someNumber() -> Int {
+        return 10
+    }
 }
