@@ -2,7 +2,7 @@
 // https://docs.swift.org/swift-book
 
 @main
-struct CodingExerciseGu {
+struct CodingExercise {
     static func main() {
         print("Hello, world!")
     }

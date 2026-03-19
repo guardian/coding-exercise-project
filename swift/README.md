@@ -8,7 +8,7 @@ Skeleton project for Swift.
 - `swift run` to run the code
 
 ## Structure
-- Tests located in [`coding_exercise_tests.swift`](./Tests/coding_exercise_gu_tests/coding_exercise_tests.swift)
-- Runtime code located in [`coding_exercise_gu.swift`](./Sources/coding_exercise_gu/coding_exercise_gu.swift)
+- Tests located in [`CodingExerciseTests.swift`](./Tests/CodingExerciseTests/CodingExerciseTests.swift)
+- Runtime code located in [`CodingExercise.swift`](./Sources/CodingExercise/CodingExercise.swift)
 
 However, feel free to organise your code as you like.

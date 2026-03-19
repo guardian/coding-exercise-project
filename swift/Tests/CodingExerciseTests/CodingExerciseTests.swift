@@ -1,15 +1,15 @@
 import Testing
-@testable import coding_exercise_gu
+@testable import CodingExercise
 
 // Documentation on Swift Testing
 // https://developer.apple.com/xcode/swift-testing/
 // https://developer.apple.com/documentation/testing/definingtests
 
 
-final class MainTests {
+final class CodingExerciseTests {
     @Test("function should return 10")
     func testExample() {
-        let value = coding_exercise_gu.someNumber()
+        let value = CodingExercise.someNumber()
         #expect(value == 10, "The someNumber function should return 10")
     }
 }
