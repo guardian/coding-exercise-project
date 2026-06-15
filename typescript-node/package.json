@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "NodeJS & TypeScript skeleton project for Guardian pairing test",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "jest",
     "tsc": "tsc",
+    "start": "tsc && node ./dist/index.js",
     "watch": "tsc-watch --onSuccess 'node ./dist/index.js' --onFailure 'echo Beep! Compilation Failed' --compiler typescript/bin/tsc"
   },
   "devDependencies": {
