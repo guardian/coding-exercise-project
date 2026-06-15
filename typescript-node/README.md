@@ -2,6 +2,9 @@
 
 Skeleton project for TypeScript (via NodeJS) with Jest for testing.
 
+> [!NOTE]
+> Uses Yarn as the package manager. Run `corepack enable` to use it.
+
 ## Usage
 See the scripts in [`package.json`](./package.json) for available commands.
 
