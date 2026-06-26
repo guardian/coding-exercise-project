@@ -3,7 +3,8 @@
   "compilerOptions": {
     "noUncheckedIndexedAccess": false, // disabled to prevent errors in C-style loops: https://github.com/guardian/coding-exercise-project/pull/111#discussion_r1481440786
     "outDir": "dist",
-    "sourceMap": true
+    "sourceMap": true,
+    "types": ["node", "jest"]
   },
   "include": [
     "src/**/*.ts"
