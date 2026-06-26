@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "NodeJS & TypeScript skeleton project for Guardian pairing test",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "jest",
     "tsc": "tsc",
