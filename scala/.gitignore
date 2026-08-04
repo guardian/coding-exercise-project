@@ -1,8 +1,7 @@
+# sbt build output
+target/
+
 # Metals / builds
 .bloop
 .bsp
 metals.sbt
-
-# Temp install of sbt
-sbt/
-*.zip
