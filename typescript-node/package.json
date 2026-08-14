@@ -7,6 +7,7 @@
   "scripts": {
     "test": "jest",
     "tsc": "tsc",
+    "start": "tsc && node ./dist/index.js",
     "watch": "tsc-watch --onSuccess 'node ./dist/index.js' --onFailure 'echo Beep! Compilation Failed' --compiler typescript/bin/tsc"
   },
   "devDependencies": {

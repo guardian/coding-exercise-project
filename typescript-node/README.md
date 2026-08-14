@@ -3,11 +3,9 @@
 Skeleton project for TypeScript (via NodeJS) with Jest for testing.
 
 ## Usage
-- `./script/setup` to install dependencies
-- `./script/test` to run the tests
+See the scripts in [`package.json`](./package.json) for available commands.
 
-### Other commands
-- `yarn watch` will constantly compile `index.ts` then execute the compiled version on every file change (for quick development feedback loop) using [tsc-watch](https://www.npmjs.com/package/tsc-watch) under the hood.
+Alternatively, if following the `script/<task>` pattern, see the `script` directory for available commands.
 
 ## Structure
 - Code located in [`index.ts`](./src/index.ts)
