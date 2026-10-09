@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-# If JAVA_HOME not set run setup script using source so that JAVA_HOME is set for this script
-if [[ -z "$JAVA_HOME" ]]
-then
-    source ./script/setup
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+
+if [[ "${1:-}" == "--watch" ]]; then
+  ./gradlew test --continuous
+else
+  ./gradlew test
 fi
-
-./gradlew test

@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-# If JAVA_HOME not set run setup script using source so that JAVA_HOME is set for this script
-if [[ -z "$JAVA_HOME" ]]
-then
-    source ./script/setup
-fi
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
 ./gradlew run
