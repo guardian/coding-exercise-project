@@ -5,6 +5,7 @@
         "jest": "^29.5.0"
     },
     "scripts": {
+        "start": "node src/index.js",
         "test": "jest"
     }
 }
