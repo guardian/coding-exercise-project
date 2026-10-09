@@ -1,7 +1,21 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-brew install php
-brew install phpunit
-brew install composer
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+
+# Bootstrap composer locally if not present
+if [[ ! -f composer.phar ]]; then
+  EXPECTED_SIG="$(curl -fsSL https://composer.github.io/installer.sig)"
+  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+  ACTUAL_SIG="$(php -r "echo hash_file('sha384', 'composer-setup.php');")"
+  if [[ "$EXPECTED_SIG" != "$ACTUAL_SIG" ]]; then
+    echo "Composer installer signature verification failed" >&2
+    rm -f composer-setup.php
+    exit 1
+  fi
+  php composer-setup.php
+  rm -f composer-setup.php
+fi
+
+php composer.phar install

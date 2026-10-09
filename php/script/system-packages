@@ -1,0 +1,92 @@
+#!/usr/bin/env bash
+
+# Installs the system libraries PHP is compiled against.
+#
+# You only need this if you are *building* PHP from source, which is what mise does.
+# If you install PHP from a package manager (apt install php, brew install php) the
+# packaging has already taken care of this and you can skip it.
+#
+# This is separate from `script/setup` because it has to run *before* the toolchain is
+# built. By the time `setup` runs, PHP is already compiled and on your PATH.
+
+set -euo pipefail
+
+# Debian/Ubuntu package names, used by the CI runner and most devcontainers.
+APT_PACKAGES=(
+  autoconf
+  bison
+  build-essential
+  libbz2-dev
+  libcurl4-openssl-dev
+  libfreetype6-dev
+  libgd-dev
+  libgmp-dev
+  libicu-dev
+  libjpeg-dev
+  libonig-dev
+  libpng-dev
+  libpq-dev
+  libreadline-dev
+  libsodium-dev
+  libsqlite3-dev
+  libssl-dev
+  libwebp-dev
+  libxml2-dev
+  libxslt1-dev
+  libzip-dev
+  pkg-config
+  re2c
+  zlib1g-dev
+)
+
+# macOS equivalents. Xcode Command Line Tools provide the compiler toolchain itself.
+BREW_PACKAGES=(
+  autoconf
+  bison
+  freetype
+  gd
+  gettext
+  gmp
+  icu4c
+  jpeg
+  libiconv
+  libpng
+  libsodium
+  libxml2
+  libzip
+  oniguruma
+  pkg-config
+  re2c
+  webp
+)
+
+if command -v apt-get >/dev/null 2>&1; then
+  # Containers often run as root, without sudo installed.
+  if [[ "$(id -u)" -eq 0 ]]; then
+    sudo=()
+  elif command -v sudo >/dev/null 2>&1; then
+    sudo=(sudo)
+  else
+    echo "This script needs root to install packages, but sudo is not available." >&2
+    echo "Re-run it as root, or install these packages yourself:" >&2
+    printf '  %s\n' "${APT_PACKAGES[*]}" >&2
+    exit 1
+  fi
+
+  "${sudo[@]}" apt-get update --quiet
+  "${sudo[@]}" apt-get install --yes --no-install-recommends "${APT_PACKAGES[@]}"
+
+elif command -v brew >/dev/null 2>&1; then
+  brew install "${BREW_PACKAGES[@]}"
+
+else
+  echo "Could not find apt-get or brew, so this script cannot install packages for you." >&2
+  echo "" >&2
+  echo "PHP is compiled from source, and needs the development headers for roughly:" >&2
+  echo "  autoconf bison libcurl libgd libicu libjpeg libpng libsodium libsqlite3" >&2
+  echo "  libssl libxml2 libzip oniguruma pkg-config re2c zlib" >&2
+  echo "" >&2
+  echo "Install the equivalents for your system, or install PHP from your package" >&2
+  echo "manager instead of building it - see .tool-versions for the version needed." >&2
+  exit 1
+fi
