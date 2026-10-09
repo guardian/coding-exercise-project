@@ -13,7 +13,7 @@ namespace Tests
         [Test]
         public void ExampleTest()
         {
-            Assert.IsTrue(Code.PairingTest.TestFunction());
+            Assert.That(Code.PairingTest.TestFunction(), Is.True);
         }
     }
 }
