@@ -1,5 +1,5 @@
 RSpec.describe PairingTest do
-  it "the passes instance method returns true" do
+  it "returnsFalse returns false" do
     expect(PairingTest::Main.new.returnsFalse).to eq(false)
   end
 end
