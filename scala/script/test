@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-sbt ~test
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+
+if [[ "${1:-}" == "--watch" ]]; then
+  sbt "~test"
+else
+  sbt test
+fi
