@@ -1,3 +1,3 @@
 export const pairingTest = () => {
-    return false;
+    return true;
 }
