@@ -1,9 +1,9 @@
 <?php
 
-function test() {
-    echo "Hi there!\n";
+function greeting(): string {
+    return "Hi there!";
 }
 
-test();
-
-?>
+if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'] ?? '')) {
+    echo greeting() . "\n";
+}
