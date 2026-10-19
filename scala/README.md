@@ -2,16 +2,26 @@
 
 Skeleton project for Scala.
 
-## Usage
-- `./script/setup` to install dependencies
-- `./script/test` to run the tests
+## Prerequisites
 
-## Usage (on Windows)
-- Make sure JDK version 8 or above is installed and JAVA_HOME environment variable is set
-- Use Powershell to execute the below commands
-- `PowerShell.exe -ExecutionPolicy UnRestricted -File .\script\setup.ps1` to download and extract portable sbt
-    - (If this script fails you can do this manually by visiting https://github.com/sbt/sbt/releases ,downloading the latest sbt zip and extracting it to ./coding-exercise-project/scala/sbt)
-- `.\sbt\sbt\bin\sbt test` to run tests
+The toolchain this project needs is declared in [`.tool-versions`](./.tool-versions):
+
+```
+java corretto-21
+sbt 1
+```
+
+Install those however you prefer, as long as they end up on your `PATH`. The quickest route is
+[mise](https://mise.jdx.dev/), which reads the file for you:
+
+```sh
+mise install
+```
+
+## Usage
+- `./script/setup` to fetch dependencies
+- `./script/test` to run the tests, or `./script/test --watch` to re-run them on every change
+- `./script/start` to run the app
 
 ## Structure
 - Code located in [`Main.scala`](./src/main/scala/gu/com/Main.scala)

@@ -5,5 +5,5 @@ object Main {
 
   }
 
-  def whereWeLive = "Mars"
+  def whereWeLive = "Earth"
 }
