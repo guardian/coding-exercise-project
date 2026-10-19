@@ -2,6 +2,6 @@
   (:require [clojure.test :refer :all]
             [gol.core :refer :all]))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(deftest greeting-test
+  (testing "greeting addresses the name it is given"
+    (is (= "Hello, world!" (greeting "world")))))
