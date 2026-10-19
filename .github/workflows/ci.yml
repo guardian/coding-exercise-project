@@ -1,0 +1,98 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  # Projects opt in to CI simply by having a .tool-versions file in their top level directory
+  discover:
+    name: Discover projects
+    runs-on: ubuntu-latest
+    outputs:
+      projects: ${{ steps.find.outputs.projects }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Find projects with a .tool-versions
+        id: find
+        run: |
+          projects=$(
+            for dir in */; do
+              if [[ -f "${dir}.tool-versions" ]]; then
+                echo "${dir%/}"
+              fi
+            done | jq -R . | jq -sc .
+          )
+          echo "Discovered: $projects"
+          echo "projects=$projects" >> "$GITHUB_OUTPUT"
+
+  # Guards against a half-adopted project silently dropping out of CI.
+  # If a project declares a .tool-versions it must also provide the scripts the build job runs.
+  conform:
+    name: Check project structure
+    needs: discover
+    if: needs.discover.outputs.projects != '[]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Every project must have executable setup and test scripts
+        env:
+          PROJECTS: ${{ needs.discover.outputs.projects }}
+        run: |
+          status=0
+          for project in $(jq -r '.[]' <<< "$PROJECTS"); do
+            for script in setup test; do
+              path="$project/script/$script"
+              if [[ ! -f "$path" ]]; then
+                echo "::error file=$project/.tool-versions::$project declares a .tool-versions but has no $path"
+                status=1
+              elif [[ ! -x "$path" ]]; then
+                echo "::error file=$path::$path is not executable, run: chmod +x $path"
+                status=1
+              fi
+            done
+          done
+          exit $status
+
+  build:
+    name: ${{ matrix.project }}
+    needs: discover
+    if: needs.discover.outputs.projects != '[]'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project: ${{ fromJSON(needs.discover.outputs.projects) }}
+    defaults:
+      run:
+        working-directory: ${{ matrix.project }}
+    steps:
+      - uses: actions/checkout@v5
+
+      # Optional extra step for toolchains that build from source and need system
+      # libraries the runner does not ship (e.g. php).
+      # Runs before mise, so it cannot rely on dependencies in `.tool-versions`.
+      - name: Install system packages
+        run: |
+          if [[ -x script/system-packages ]]; then
+            ./script/system-packages
+          fi
+
+      - name: Install the toolchain declared in .tool-versions
+        uses: jdx/mise-action@v2
+        with:
+          working_directory: ${{ matrix.project }}
+
+      - run: ./script/setup
+
+      - run: ./script/test
