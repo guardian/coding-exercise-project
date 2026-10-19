@@ -2,4 +2,8 @@
 
 set -e
 
-deno test src --watch
+if [[ "${1:-}" == "--watch" ]]; then
+  deno test src --watch
+else
+  deno test src
+fi

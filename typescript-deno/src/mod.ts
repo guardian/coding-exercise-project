@@ -1,4 +1,4 @@
-const result = false;
+const result = true;
 
 if (import.meta.main) {
   console.info(`Running %cmod.ts`, "color: blue");
