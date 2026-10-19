@@ -1,7 +1,11 @@
 package main
 
-import "./src"
+import (
+	"fmt"
+
+	"github.com/guardian/coding-exercise-project/go/src"
+)
 
 func main() {
-  println(pairing.SayHello())
+	fmt.Println(pairing.SayHello())
 }
