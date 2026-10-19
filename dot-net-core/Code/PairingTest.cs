@@ -5,7 +5,7 @@ namespace Code
     public class PairingTest
     {
         public static bool TestFunction() {
-            return false;
+            return true;
         }
 
         static void Main(string[] args)
