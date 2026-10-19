@@ -1,4 +1,5 @@
 {
+  "packageManager": "yarn@3.8.7",
   "name": "pairing-test",
   "version": "1.0.0",
   "description": "NodeJS & TypeScript skeleton project for Guardian pairing test",
@@ -7,7 +8,8 @@
   "scripts": {
     "test": "jest",
     "tsc": "tsc",
-    "watch": "tsc-watch --onSuccess 'node ./dist/index.js' --onFailure 'echo Beep! Compilation Failed' --compiler typescript/bin/tsc"
+    "watch": "tsc-watch --onSuccess 'node ./dist/index.js' --onFailure 'echo Beep! Compilation Failed' --compiler typescript/bin/tsc",
+    "start": "tsc && node ./dist/index.js"
   },
   "devDependencies": {
     "@guardian/tsconfig": "0.2.0",
