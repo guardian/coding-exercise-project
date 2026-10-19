@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-brew install dotnet-sdk
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+
+dotnet restore
