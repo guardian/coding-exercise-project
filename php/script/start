@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-composer run-script start
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+
+php composer.phar run-script start

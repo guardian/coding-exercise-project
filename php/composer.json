@@ -4,6 +4,7 @@
     },
     "scripts": {
         "start": "php code.php",
-        "test": "phpunit Tests.php"
+        "test": "vendor/bin/phpunit Tests.php"
     }
 }
+
