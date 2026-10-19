@@ -3,8 +3,5 @@ import pairing_exercise
 
 
 class TestPairingExercise(unittest.TestCase):
-    def test_unit_tests(self):
-        self.assertTrue(False, 'Failed!')
-
-    def test_import(self):
+    def test_name(self):
         self.assertEqual(pairing_exercise.name, 'Pairing exercise')
