@@ -1,14 +1,11 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-pushd "$DIR"
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
-brew install python3
+python3 -m venv venv
 
-pip3 install virtualenv
-
-virtualenv ../venv
-
-popd
+if [[ -f requirements.txt ]]; then
+  venv/bin/pip install -r requirements.txt
+fi
