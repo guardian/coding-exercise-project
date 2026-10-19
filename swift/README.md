@@ -2,22 +2,28 @@
 
 Skeleton project for Swift.
 
+## Prerequisites
+
+The toolchain this project needs is declared in [`.tool-versions`](./.tool-versions):
+
+```
+swift 6
+```
+
+Install those however you prefer, as long as they end up on your `PATH`. The quickest route is
+[mise](https://mise.jdx.dev/), which reads the file for you:
+
+```sh
+mise install
+```
+
 ## Usage
-- Follow instructions at https://www.swift.org/install/ to install the Swift SDK
-- `swift test` to run the tests
-- `swift run` to run the code
+- `./script/setup` to resolve dependencies
+- `./script/test` to run the tests
+- `./script/start` to run the app
 
 ## Structure
 - Tests located in [`CodingExerciseTests.swift`](./Tests/CodingExerciseTests/CodingExerciseTests.swift)
-- Runtime code located in [`CodingExercise.swift`](./Sources/CodingExercise/CodingExercise.swift)
+- Code located in [`CodingExercise.swift`](./Sources/CodingExercise/CodingExercise.swift)
 
-However, feel free to organise your code as you like.
-
-## IDE
-
-The pairing test is a generic problem solving exercise and you can use any code editor you like so long as you can run swift code and write unit tests.
-
-However we suggest any of the following as they're the easiest to get started with:
-- [XCode](https://developer.apple.com/xcode/)
-- [VSCode](https://code.visualstudio.com/) or [VSCodium](https://vscodium.com/) with the [Swift extension](https://marketplace.visualstudio.com/items?itemName=swiftlang.swift-vscode)
-- [XCode Swift Playground](https://www.apple.com/uk/swift/playgrounds/)
+However, you're free to organise your code as you like.
