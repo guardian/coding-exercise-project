@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-rake spec
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+
+bundle exec rake spec
