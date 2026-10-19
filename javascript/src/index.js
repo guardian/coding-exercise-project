@@ -1,5 +1,5 @@
 function pairingTest() {
-    return false;
+    return true;
 }
 
 module.exports = {

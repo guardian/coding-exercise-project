@@ -1,5 +1,5 @@
 const { pairingTest } = require('.');
 
-test('a failing test', () => {
+test('pairingTest returns true', () => {
     expect(pairingTest()).toBe(true);
 });
