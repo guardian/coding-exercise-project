@@ -1,4 +1,4 @@
-(ns gol.core)
+(ns pairing.core)
 
 (defn greeting
   "Builds a greeting for the given name."
